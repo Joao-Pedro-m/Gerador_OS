@@ -1,6 +1,7 @@
 # gerador_os.py
 from pylatex import Document, Section, Tabular, LineBreak, Command
 from pylatex.utils import NoEscape
+from os import remove
 
 def gerar_ordem_servico(nome_cliente, veiculo, servicos, total):
     # Configuração do documento
@@ -12,7 +13,7 @@ def gerar_ordem_servico(nome_cliente, veiculo, servicos, total):
     
     # Seção: Dados do cliente
     with doc.create(Section('Dados do Cliente')):
-        doc.append(f'Nome: {nome_cliente}')
+        doc.append(f'Nome: {nome_cliente}\n')
         doc.append(LineBreak())
         doc.append(f'Veículo: {veiculo}')
     
@@ -31,5 +32,7 @@ def gerar_ordem_servico(nome_cliente, veiculo, servicos, total):
         doc.append(f'Valor Total: R$ {total:.2f}')
     
     # Gerar PDF
-    doc.generate_pdf('nome_do_arquivo', compiler='pdflatex', clean_tex=False)
+    doc.generate_pdf(f'Ordem de Serviço-{nome_cliente}', compiler='pdflatex', clean_tex=False)
 
+    # Deleta o Arquivo .tex
+    remove(f"Ordem de Serviço-{nome_cliente}.tex")
