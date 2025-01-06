@@ -23,20 +23,24 @@ class OrdemServicoApp:
         self.entry_veiculo.grid(row=1, column=1)
 
         # Seção para adicionar serviços
-        tk.Label(root, text="Serviços Realizados:").grid(row=2, column=0, sticky="w")
-        self.entry_servico = tk.Entry(root, width=20)
-        self.entry_servico.grid(row=3, column=0)
+        tk.Label(root, text="Serviço:").grid(row=2, column=0, sticky="w")
+        self.entry_servico = tk.Entry(root, width=40)
+        self.entry_servico.grid(row=2, column=1, sticky="e")
+        tk.Label(root, text="Quantidade:").grid(row=2, column=2, sticky="w")
         self.entry_qtd = tk.Entry(root, width=10)
-        self.entry_qtd.grid(row=3, column=1)
+        self.entry_qtd.grid(row=2, column=3)
+        tk.Label(root, text="Preço:").grid(row=2, column=4, sticky="w")
         self.entry_preco = tk.Entry(root, width=10)
-        self.entry_preco.grid(row=3, column=2)
-        tk.Button(root, text="Adicionar Serviço", command=self.adicionar_servico).grid(row=3, column=3)
+        self.entry_preco.grid(row=2, column=5)
+        tk.Button(root, text="Adicionar Serviço", command=self.adicionar_servico).grid(row=2, column=6, padx=10)
 
+        #Lista de Serviços
+        tk.Label(root, text="Serviços Realizados:").grid(row=3, column=0, sticky="w")
         self.lista_servicos = tk.Listbox(root, width=70)
-        self.lista_servicos.grid(row=4, column=0, columnspan=4)
-
+        self.lista_servicos.grid(row=4, column=0, columnspan=4, sticky="n")
+        
         # Botão Gerar PDF
-        tk.Button(root, text="Gerar PDF", command=self.gerar_pdf).grid(row=5, column=1, pady=10)
+        tk.Button(root, text="Gerar PDF", command=self.gerar_pdf).grid(row=5, column=0, columnspan=4, pady=10)
 
     def adicionar_servico(self):
         descricao = self.entry_servico.get()
@@ -65,8 +69,12 @@ class OrdemServicoApp:
             return
 
         total = sum(servico['preco'] for servico in self.servicos)
-        gerar_ordem_servico(nome_cliente, veiculo, self.servicos, total)
-        messagebox.showinfo("Sucesso", "Ordem de Serviço gerada com sucesso!")
+
+        try:
+            gerar_ordem_servico(nome_cliente, veiculo, self.servicos, total)
+            messagebox.showinfo("Sucesso", "Ordem de Serviço gerada com sucesso!")
+        except:
+            print("ERRO AO CRIAR PDF")
 
 if __name__ == "__main__":
     root = tk.Tk()
