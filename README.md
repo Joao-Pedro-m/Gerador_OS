@@ -1,14 +1,14 @@
-#Gerador_OS
+# Gerador_OS
 
-##Objetivo
+## Objetivo
 
 Automatizar a criação de ordens de serviço em formato PDF, facilitando a organização e documentação dos serviços prestados aos clientes.
 
-##Descrição
+## Descrição
 
 O Gerador_OS é uma aplicação desenvolvida em Python que gera ordens de serviço de forma prática e profissional. O projeto utiliza a biblioteca pylatex para compor documentos LaTeX que, posteriormente, são convertidos em arquivos PDF. A interface gráfica, construída com tkinter, permite a entrada de dados como informações do cliente, detalhes do veículo e serviços realizados, integrando-se a um banco de dados MySQL para armazenamento e recuperação de informações.
 
-##Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 Python: Linguagem principal para o desenvolvimento do projeto.
 
@@ -21,16 +21,16 @@ MySQL: Banco de dados utilizado para armazenar informações dos clientes, veíc
 tkinter: Biblioteca para a criação da interface gráfica do usuário (GUI).
 
 
-##Como Usar
+## Como Usar
 
 1. Clone o repositório:
 
-'git clone https://github.com/Joao-Pedro-m/Gerador_OS.git'
+` git clone https://github.com/Joao-Pedro-m/Gerador_OS.git `
 
 
 2. Instale as dependências: Certifique-se de ter o Python instalado e, em seguida, instale as dependências necessárias com:
 
-'pip install -r requirements.txt'
+` pip install -r requirements.txt `
 
 > Caso o arquivo requirements.txt não esteja presente, verifique na documentação quais bibliotecas precisam ser instaladas (como pylatex, tkinter e o conector MySQL para Python).
 
@@ -47,7 +47,7 @@ Certifique-se de que o banco de dados está ativo e acessível.
 
 4. Execute a interface gráfica: Inicie a aplicação executando:
 
-'python interface.py'
+` python interface.py `
 
 A interface permitirá inserir os dados do cliente, do veículo e dos serviços realizados.
 
@@ -56,7 +56,7 @@ A interface permitirá inserir os dados do cliente, do veículo e dos serviços 
 
 
 
-##Contribuição
+## Contribuição
 
 Contribuições são bem-vindas! Caso deseje colaborar, siga os passos abaixo:
 
@@ -71,6 +71,6 @@ Envie para a branch: git push origin minha-feature
 Abra um Pull Request detalhando as alterações realizadas.
 
 
-##Licença
+## Licença
 
 Este projeto está licenciado sob a MIT License.
